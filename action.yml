@@ -1,0 +1,18 @@
+name: "App Center CLI Action"
+description: "Action responsible to enable the user to run any App Center command"
+inputs:
+  command:
+    description: "App Center Command"
+    required: true
+  user_token:
+    description: "User token"
+    required: true
+branding:
+  icon: terminal
+  color: red
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.command }}
+    - ${{ inputs.user_token }}
